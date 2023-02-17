@@ -1,0 +1,153 @@
+@use 'variables' as *;
+@use 'resets';
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+@mixin screen-min($min) {
+   @media (min-width: 1080px) {
+      @content
+   }
+}
+
+;
+
+:root {
+   @include screen-min(1080px) {
+      font-size: 18px;
+   }
+}
+
+body {
+   font-family: 'Montserrat', sans-serif;
+}
+
+.cart-btn {
+   border: 0;
+   outline: 0;
+   border-radius: .6em;
+
+   background-color: $dark-cyan;
+   color: $white;
+
+   font-weight: 700;
+   font-size: 1.15rem;
+   padding: 1em 1.2em;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: .5rem;
+   width: 100%;
+   margin-bottom: .6rem;
+
+   &:hover {
+      transition: .3s;
+      background-color: darken($dark-cyan, 20%);
+   }
+}
+
+.title {
+   color: $dark-grayish-blue;
+   font-size: .9rem;
+   font-weight: 500;
+   text-transform: uppercase;
+   letter-spacing: .3rem;
+   margin-top: .5rem;
+}
+
+.perfume-name {
+   font-family: 'Fraunces', serif;
+   font-size: 2rem;
+   margin: .7rem 0;
+   color: $Very-dark-blue;
+
+   @include screen-min(1080px) {
+      font-size: 2.3rem;
+      line-height: 2.3rem;
+   }
+}
+
+p {
+   color: $dark-grayish-blue;
+   line-height: 1.5rem;
+}
+
+.price__container {
+   margin: 1rem 0;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+
+   .price {
+      font-family: 'Fraunces', serif;
+      color: $dark-cyan;
+      font-size: 2.5rem;
+
+      &--secondary {
+         font-family: 'Montserrat', sans-serif;
+         text-decoration: line-through;
+         color: $dark-grayish-blue;
+         font-size: 1rem;
+      }
+   }
+}
+
+body {
+   background-color: $cream;
+}
+
+.wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   height: 100svh;
+}
+
+.preview-container {
+   border-radius: .6rem;
+   background-color: $white;
+   width: 90%;
+   max-width: 400px;
+
+   @include screen-min(1080px) {
+      display: flex;
+      justify-content: space-between;
+      min-width: 683px;
+      max-width: 730px;
+      max-height: 500px;
+   }
+
+   .img__container {
+      border-radius: .6rem .6rem 0 0;
+      min-height: 270px;
+      max-height: 319px;
+
+      #desktop-image {
+         display: none;
+      }
+
+      @include screen-min(1080px) {
+         max-height: none;
+         width: 50%;
+
+         #mobile-image {
+            display: none;
+         }
+
+         #desktop-image {
+            display: block;
+         }
+      }
+   }
+
+   .text__container {
+      padding: 1rem 1.5rem;
+
+      @include screen-min(1080px) {
+         display: grid;
+         align-items: center;
+         width: 50%;
+         max-height: none;
+      }
+   }
+}
